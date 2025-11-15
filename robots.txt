@@ -1,0 +1,49 @@
+# Pawsitive Placements - Robots.txt
+# Optimized for search engine crawling and indexing
+
+User-agent: *
+Allow: /
+Disallow: /admins/
+Disallow: /api/
+Disallow: /user/
+Disallow: /application/
+Disallow: /errors/
+Disallow: /*.sql$
+Disallow: /*.env$
+Disallow: /tests/
+
+# Allow important pages
+Allow: /index.php
+Allow: /home.php
+Allow: /about/
+Allow: /pets/
+Allow: /forum/
+Allow: /contact/
+Allow: /pet-rehome/
+Allow: /view/terms-of-use.php
+Allow: /view/privacy-policy.php
+
+# Allow static assets
+Allow: /images/
+Allow: /styles/
+Allow: /js/
+
+# Sitemap location
+Sitemap: https://www.pawsitiveplacements.ca/sitemap.xml
+
+# Crawl delay (optional - adjust based on server capacity)
+Crawl-delay: 1
+
+# Specific bot rules
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 1
+

@@ -1,0 +1,157 @@
+# Pawsitive Placements - Git Ignore Rules
+# Protects proprietary code while allowing portfolio samples
+
+# ============================================================================
+# SENSITIVE FILES - NEVER COMMIT
+# ============================================================================
+
+# Environment & Configuration
+.env
+.env.local
+.env.production
+.env.*.local
+config.local.php
+*.env
+
+# Database Credentials
+model/database.php
+database/config.php
+database/credentials.php
+**/database.php
+
+# ============================================================================
+# PROPRIETARY CODE - Keep Private (Portfolio samples in portfolio-samples/)
+# ============================================================================
+
+# Full Model Implementations (Show samples only)
+model/*.php
+!portfolio-samples/model/*.php
+
+# Full API Implementations (Show samples only)
+api/*.php
+!portfolio-samples/api/*.php
+
+# Admin Panel (Keep proprietary)
+admins/
+!admins/.gitkeep
+
+# Full Controller Implementations (Keep proprietary)
+user/
+application/
+contact/
+pet-rehome/
+forum/
+pets/index.php
+about/
+
+# Keep view components (safe to show)
+!view/
+
+# ============================================================================
+# USER DATA & UPLOADS - Privacy Protection
+# ============================================================================
+
+# User-uploaded images (keep static assets)
+images/uploads/
+images/user_uploads/
+uploads/
+user_data/
+
+# Keep static assets and logos
+!images/logo.png
+!images/pawsitive_placements.png
+!images/pawsitive_pets2.png
+
+# ============================================================================
+# DEVELOPMENT FILES
+# ============================================================================
+
+# IDE and Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-project
+*.sublime-workspace
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+.AppleDouble
+.LSOverride
+
+# Logs
+*.log
+logs/
+error_log
+php_errors.log
+
+# Temporary files
+*.tmp
+*.temp
+*.cache
+tmp/
+temp/
+
+# Composer
+/vendor/
+composer.lock
+
+# Node modules
+node_modules/
+package-lock.json
+
+# Backup files
+*.bak
+*.backup
+*~
+
+# ============================================================================
+# KEEP THESE - Portfolio Showcase
+# ============================================================================
+
+# Allow portfolio samples
+!portfolio-samples/
+
+# Allow documentation
+!docs/
+
+# Allow screenshots
+!screenshots/
+
+# Allow database schema (structure only, no data)
+!database/schema.sql
+
+# Allow configuration examples
+!robots.txt
+!sitemap.php
+!.htaccess
+
+# Allow README and LICENSE
+!README.md
+!LICENSE
+
+# Allow view components (shared templates)
+!view/header.php
+!view/footer.php
+!view/sidebar.php
+!view/sidebar_admin.php
+!view/terms-of-use.php
+!view/privacy-policy.php
+
+# Allow key pages for structure demonstration
+!home.php
+!index.php
+!pets/pet_list.php
+!pets/pet_detail.php
+
+# Allow utilities (showcase security and SEO)
+!util/seo.php
+!util/csrf.php
+!util/session.php
+!util/visit_counter.php
+
+# Allow styles and scripts
+!styles/
+!js/

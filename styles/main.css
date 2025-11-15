@@ -1,0 +1,1983 @@
+/**
+ * Pawsitive Placements
+ * 
+ * @file       styles/main.css
+ * @author     Lindsey D. Stead
+ * @date       November 7, 2025
+ * @description Main stylesheet for the application. Includes custom styles,
+ *              Bootstrap overrides, form styling, and responsive design rules.
+ */
+
+/* ============================================
+   GLOBAL STYLES
+   ============================================ */
+
+body {
+    font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f7f7f7;
+    color: #333;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* ============================================
+   BOOTSTRAP OVERRIDES
+   ============================================ */
+
+/* Form Controls - Minimal overrides */
+.form-control {
+    font-size: 16px;
+}
+
+/* Select dropdown - COMPREHENSIVE FIX for text clipping */
+/* Override Bootstrap's default form-control height calculation for selects */
+select.form-control,
+select.form-control[multiple],
+select.form-control[size],
+select.form-control[required] {
+    /* Custom arrow */
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 16px 12px;
+    
+    /* Critical: Override Bootstrap's calc() height with fixed height */
+    height: 48px !important;
+    min-height: 48px !important;
+    max-height: none !important;
+    
+    /* Balanced padding - less top, more bottom to center text */
+    padding-top: 0.5rem !important;
+    padding-bottom: 1.25rem !important;
+    padding-left: 0.75rem !important;
+    padding-right: 2.5rem !important;
+    
+    /* Line height adjusted for better vertical centering */
+    line-height: 1.8 !important;
+    
+    /* Font and sizing */
+    font-size: 16px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    
+    /* Remove default appearance */
+    appearance: none !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    
+    /* Display and overflow */
+    display: block !important;
+    overflow: visible !important;
+    box-sizing: border-box !important;
+    
+    /* Prevent any text clipping */
+    text-overflow: clip !important;
+    white-space: nowrap !important;
+}
+
+/* Select placeholder colors */
+select {
+    color: #212529 !important;
+}
+
+select option[value=""] {
+    color: #6c757d !important;
+}
+
+select.placeholder-active {
+    color: #6c757d !important;
+}
+
+/* Force proper display for all selects - maximum specificity override */
+select.form-control,
+select#gender.form-control,
+select#vaccination_status.form-control,
+select#city.form-control,
+select#pet_type.form-control,
+select#category.form-control,
+select#province.form-control,
+select.form-control[required],
+select.form-control[multiple],
+.form-group select.form-control,
+.col-md-6 select.form-control,
+.col-md-4 select.form-control,
+.col-md-3 select.form-control,
+.row select.form-control {
+    height: 48px !important;
+    min-height: 48px !important;
+    max-height: none !important;
+    padding-top: 0.5rem !important;
+    padding-bottom: 1.25rem !important;
+    padding-left: 0.75rem !important;
+    padding-right: 2.5rem !important;
+    line-height: 1.5 !important;
+    font-size: 16px !important;
+    overflow: visible !important;
+    box-sizing: border-box !important;
+    display: block !important;
+}
+
+/* Form validation - Only show after submission */
+.form-control:invalid:not(:focus) {
+    border-color: #ced4da;
+}
+
+.was-validated .form-control:invalid {
+    border-color: #dc3545;
+}
+
+.was-validated .form-control:valid {
+    border-color: #28a745;
+}
+
+.form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    outline: none;
+}
+
+/* Placeholder visibility - Consolidated */
+input::placeholder,
+textarea::placeholder {
+    color: #6c757d;
+    opacity: 1;
+}
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+    color: #6c757d;
+    opacity: 1;
+}
+
+input::-moz-placeholder,
+textarea::-moz-placeholder {
+    color: #6c757d;
+    opacity: 1;
+}
+
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+    color: #6c757d;
+    opacity: 1;
+}
+
+input::-ms-input-placeholder,
+textarea::-ms-input-placeholder {
+    color: #6c757d;
+    opacity: 1;
+}
+
+/* ============================================
+   NAVIGATION
+   ============================================ */
+
+/* Header Styles - Bootstrap Best Practices */
+.sticky-top {
+    z-index: 1020;
+}
+
+.navbar {
+    padding: 0.75rem 1rem;
+}
+
+.navbar-brand {
+    font-size: 1.25rem;
+}
+
+.logo-img {
+    height: 40px;
+    width: auto;
+}
+
+@media (max-width: 575px) {
+    .logo-img {
+        height: 35px;
+    }
+}
+
+/* Main Navigation - Left Side (mr-auto) */
+.navbar-nav.mr-auto .nav-item {
+    margin-right: 0.5rem;
+}
+
+/* User Navigation - Right Side (ml-auto) */
+.navbar-nav.ml-auto .nav-item {
+    margin-left: 0.5rem;
+}
+
+/* Bootstrap Navbar Toggler - Hamburger Menu */
+.navbar-toggler {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 0.25rem 0.5rem;
+}
+
+.navbar-toggler:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 0, 0, 0.5)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Mobile Navigation Styles */
+@media (max-width: 991px) {
+    .navbar-collapse {
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    
+    .navbar-nav {
+        flex-direction: column;
+    }
+    
+    .navbar-nav .nav-item {
+        margin: 0.25rem 0;
+        width: 100%;
+    }
+    
+    .navbar-nav .nav-link {
+        padding: 0.75rem 1rem;
+        border-radius: 0.25rem;
+        width: 100%;
+    }
+    
+    .navbar-nav .nav-link:hover {
+        background-color: #f8f9fa;
+    }
+    
+    .navbar-nav.mr-auto,
+    .navbar-nav.ml-auto {
+        margin: 0;
+    }
+    
+    .navbar-nav.ml-auto {
+        margin-top: 0.5rem;
+        padding-top: 0.5rem;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
+}
+
+.navbar-highlight {
+    height: 4px;
+    background: linear-gradient(90deg, #007bff 0%, #0056b3 50%, #007bff 100%);
+    box-shadow: 0 2px 4px rgba(0, 123, 255, 0.3);
+}
+
+/* Navigation Link Styles */
+.navbar-nav .nav-link {
+    position: relative;
+    transition: all 0.3s ease;
+    padding: 0.5rem 1.25rem;
+    border-radius: 6px;
+    white-space: nowrap;
+}
+
+.nav-link-text {
+    white-space: nowrap;
+}
+
+.navbar-nav .nav-link:hover {
+    background-color: rgba(0, 123, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.navbar-nav .nav-link i {
+    transition: all 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover i {
+    transform: scale(1.2);
+    color: #007bff;
+}
+
+.navbar-nav .nav-item.active .nav-link {
+    background-color: rgba(0, 123, 255, 0.15);
+    color: #007bff;
+}
+
+.navbar-nav .nav-item.active .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 3px;
+    background-color: #007bff;
+    border-radius: 2px;
+}
+
+.navbar-nav .dropdown-toggle {
+    cursor: pointer;
+    padding: 0.5rem 1.25rem;
+}
+
+.navbar-nav .dropdown-menu {
+    border: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    margin-top: 8px;
+    min-width: 200px;
+}
+
+.navbar-nav .dropdown-item {
+    padding: 0.75rem 1.25rem;
+    transition: all 0.2s ease;
+    border-radius: 4px;
+    margin: 2px 8px;
+}
+
+.navbar-nav .dropdown-item:hover {
+    background-color: rgba(0, 123, 255, 0.1);
+    transform: translateX(4px);
+}
+
+.navbar-nav .dropdown-item i {
+    width: 20px;
+    text-align: center;
+}
+
+.navbar-nav .dropdown-divider {
+    margin: 0.5rem 0;
+}
+
+.nav-link {
+    padding: 10px 15px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+}
+
+/* ============================================
+   FORMS
+   ============================================ */
+
+.form-container {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px 0;
+    box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+    .form-container {
+        padding: 30px 0;
+    }
+}
+
+.search-form {
+    width: 100%;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0.75rem;
+    display: block;
+    font-size: 15px;
+    line-height: 1.4;
+}
+
+.search-form .form-group label {
+    color: #212121;
+    margin-bottom: 0.5rem;
+}
+
+.form-group .form-text {
+    margin-top: 0.5rem;
+    font-size: 14px;
+    color: #6c757d;
+}
+
+.form-group .invalid-feedback {
+    display: none;
+    width: 100%;
+    margin-top: 0.5rem;
+    font-size: 14px;
+    color: #dc3545;
+}
+
+.was-validated .form-control:invalid ~ .invalid-feedback {
+    display: block;
+}
+
+.form-section-header {
+    margin-top: 1.5rem;
+}
+
+.form-section-header:first-child {
+    margin-top: 0;
+}
+
+.form-section-header h5 {
+    color: #212529;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.form-section-header hr {
+    border-top: 2px solid #e9ecef;
+    margin-top: 0.5rem;
+}
+
+.custom-file-label {
+    color: #212529;
+    background-color: #fff;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    padding: 12px 15px;
+    line-height: 1.5;
+}
+
+.custom-file-input:focus ~ .custom-file-label {
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.custom-file-input:valid ~ .custom-file-label {
+    border-color: #28a745;
+}
+
+.custom-file-input:invalid ~ .custom-file-label {
+    border-color: #dc3545;
+}
+
+/* Touch-friendly inputs on mobile */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+input[type="number"],
+textarea {
+    min-height: 44px;
+    font-size: 16px;
+}
+
+@media (min-width: 768px) {
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="tel"],
+    input[type="number"],
+    textarea {
+        min-height: auto;
+    }
+    
+    /* Ensure selects maintain proper height at all screen sizes - desktop override */
+    select.form-control,
+    select#gender.form-control,
+    select#vaccination_status.form-control,
+    select#city.form-control,
+    select#pet_type.form-control,
+    select#category.form-control,
+    select#province.form-control,
+    select.form-control[required],
+    .form-group select.form-control,
+    .col-md-6 select.form-control,
+    .col-md-4 select.form-control,
+    .col-md-3 select.form-control,
+    .row select.form-control {
+        height: 48px !important;
+        min-height: 48px !important;
+        max-height: none !important;
+        padding-top: 0.5rem !important;
+        padding-bottom: 1.25rem !important;
+        padding-left: 0.75rem !important;
+        padding-right: 2.5rem !important;
+        line-height: 1.5 !important;
+        font-size: 16px !important;
+        overflow: visible !important;
+        box-sizing: border-box !important;
+        display: block !important;
+    }
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+
+/* Base Button Styles - Consistent across all buttons */
+.btn-primary,
+.btn-secondary,
+.btn-success,
+.btn-danger,
+.btn-warning,
+.btn-info,
+.btn-light,
+.btn-dark {
+    padding: 12px 30px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    min-width: 120px;
+    min-height: 44px;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    line-height: 1.5;
+    box-sizing: border-box;
+}
+
+/* Remove margin from buttons when in groups */
+.btn-group .btn,
+.form-button-group .btn,
+.d-flex .btn {
+    margin: 0;
+}
+
+/* Standalone buttons get consistent spacing */
+.btn:not(.btn-group .btn):not(.form-button-group .btn):not(.d-flex .btn) {
+    margin: 0 5px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+}
+
+.btn-primary:active,
+.btn-primary:focus {
+    transform: translateY(0);
+    background-color: #004085;
+    outline: none;
+    box-shadow: 0 2px 4px rgba(0, 123, 255, 0.3);
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: #fff;
+    border-color: #6c757d;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(108, 117, 125, 0.3);
+}
+
+.btn-secondary:active,
+.btn-secondary:focus {
+    transform: translateY(0);
+    background-color: #545b62;
+    outline: none;
+    box-shadow: 0 2px 4px rgba(108, 117, 125, 0.3);
+}
+
+/* Button Groups - Symmetrical and Consistent */
+.form-button-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
+.form-button-group .btn {
+    flex: 1;
+    min-width: 140px;
+    max-width: 250px;
+    margin: 0;
+}
+
+.form-button-group .btn-secondary {
+    order: 1;
+}
+
+.form-button-group .btn-primary {
+    order: 2;
+}
+
+/* Button Groups in Cards - Pet Cards, etc. */
+.pet-card-actions {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    margin-top: auto;
+}
+
+.pet-card-actions .btn {
+    flex: 1;
+    min-width: 0;
+    margin: 0;
+}
+
+.d-flex.gap-2 .btn,
+.card .btn {
+    flex: 1;
+    min-width: 0;
+    margin: 0;
+}
+
+/* Block Buttons - Full Width */
+.btn-block {
+    width: 100%;
+    display: block;
+    margin: 0;
+}
+
+.btn-block + .btn-block {
+    margin-top: 10px;
+}
+
+/* Small Buttons */
+.btn-sm {
+    padding: 8px 20px;
+    font-size: 14px;
+    min-width: 100px;
+    min-height: 38px;
+}
+
+/* Large Buttons */
+.btn-lg {
+    padding: 16px 40px;
+    font-size: 18px;
+    min-width: 150px;
+    min-height: 50px;
+}
+
+/* Mobile Responsive - Buttons */
+@media (max-width: 767px) {
+    .btn-primary,
+    .btn-secondary,
+    .btn-success,
+    .btn-danger,
+    .btn-warning,
+    .btn-info {
+        padding: 12px 24px;
+        font-size: 15px;
+        min-height: 44px;
+        min-width: 100px;
+        width: 100%;
+        margin: 5px 0;
+    }
+    
+    .form-button-group {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+    }
+    
+    .form-button-group .btn {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+    }
+    
+    .btn-sm {
+        padding: 10px 18px;
+        font-size: 13px;
+        min-height: 40px;
+    }
+    
+    /* Stack buttons in card actions on mobile */
+    .pet-card-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .pet-card-actions .btn {
+        width: 100%;
+        margin: 0;
+    }
+    
+    .pet-card .d-flex,
+    .card-actions .d-flex {
+        flex-direction: column;
+    }
+    
+    .pet-card .btn,
+    .card-actions .btn {
+        width: 100%;
+        margin: 5px 0;
+    }
+    
+    /* Buttons in flex containers stack on mobile */
+    .d-flex.gap-2 {
+        flex-direction: column;
+        gap: 10px !important;
+    }
+}
+
+.btn-link {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.btn-link:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+button[type="submit"],
+button[type="reset"],
+button[type="button"] {
+    font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-weight: 600;
+}
+
+/* ============================================
+   LAYOUT COMPONENTS
+   ============================================ */
+
+/* ============================================
+   FOOTER - Bootstrap Best Practices
+   ============================================ */
+.footer {
+    background-color: #333;
+    color: #fff;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .footer-bottom {
+        padding: 20px;
+    }
+}
+
+.footer-section h2,
+.footer-section h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.footer-section a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-section a:hover {
+    color: #007bff;
+}
+
+/* Footer Newsletter Form - Symmetrical and Centered */
+.footer-newsletter-form {
+    width: 100%;
+    max-width: 100%;
+}
+
+.footer-newsletter-form .form-group {
+    margin-bottom: 1rem;
+}
+
+.footer-newsletter-form .form-control {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    border-radius: 0.375rem;
+    padding: 0.5rem 0.75rem;
+    width: 100%;
+    text-align: center;
+}
+
+.footer-newsletter-form .form-control::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+    text-align: center;
+}
+
+.footer-newsletter-form .form-control:focus {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: #007bff;
+    color: #fff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    outline: none;
+}
+
+.footer-newsletter-form .btn {
+    border-radius: 0.375rem;
+    font-weight: 600;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    min-height: 38px;
+    margin: 0;
+}
+
+/* Social Media Icons - Symmetrical */
+.social-icon {
+    font-size: 1.5rem;
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.social-icon:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px) scale(1.1);
+    color: #007bff !important;
+}
+
+/* Footer Links */
+.footer-links a {
+    transition: all 0.2s ease;
+    display: inline-block;
+}
+
+.footer-links a:hover {
+    color: #007bff !important;
+    transform: translateX(5px);
+}
+
+/* Footer Responsive - Stack on Mobile */
+@media (max-width: 767px) {
+    .footer .row > div {
+        text-align: center !important;
+        margin-bottom: 2rem;
+    }
+    
+    .footer .row > div:last-child {
+        margin-bottom: 0;
+    }
+    
+    .footer-newsletter-form {
+        max-width: 100%;
+        margin: 0 auto;
+    }
+    
+    .footer-newsletter-form .form-control {
+        text-align: center;
+    }
+    
+    .social-icon {
+        width: 44px;
+        height: 44px;
+        font-size: 1.4rem;
+        margin: 0 8px;
+    }
+    
+    .footer .d-flex.justify-content-center {
+        justify-content: center !important;
+    }
+}
+
+/* Social Media Icons */
+.socials {
+    margin-top: 1rem;
+}
+
+.socials a {
+    display: inline-block;
+    margin-right: 0.5rem;
+    font-size: 1.2rem;
+    transition: transform 0.2s ease, color 0.2s ease;
+    text-decoration: none;
+}
+
+.socials a:hover {
+    transform: scale(1.15);
+}
+
+.socials a[aria-label="Facebook"] i {
+    color: #1877f2;
+}
+
+.socials a[aria-label="Facebook"]:hover i {
+    color: #166fe5;
+}
+
+.socials a[aria-label="Twitter"] i {
+    color: #1da1f2;
+}
+
+.socials a[aria-label="Twitter"]:hover i {
+    color: #0d8bd9;
+}
+
+.socials a[aria-label="Instagram"] i {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.sidebar .socials a {
+    font-size: 1rem;
+}
+
+.sidebar .socials a[aria-label="Facebook"] i {
+    color: #1877f2;
+}
+
+.sidebar .socials a[aria-label="Twitter"] i {
+    color: #1da1f2;
+}
+
+.sidebar .socials a[aria-label="Instagram"] i {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Logo */
+.logo-img {
+    height: 60px;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+@media (min-width: 768px) {
+    .logo-img {
+        height: 70px;
+    }
+    
+    .navbar-brand {
+        min-height: 80px;
+    }
+    
+    .navbar {
+        min-height: 80px;
+    }
+}
+
+@media (min-width: 992px) {
+    .logo-img {
+        height: 80px;
+    }
+    
+    .navbar-brand {
+        min-height: 90px;
+    }
+    
+    .navbar {
+        min-height: 90px;
+    }
+}
+
+/* Table */
+.table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* ============================================
+   HOME PAGE COMPONENTS
+   ============================================ */
+
+/* Hero Section */
+.modern-hero-section {
+    position: relative;
+    background-image: url('../images/pawsitive_pets2.png');
+    background-size: cover;
+    background-position: center 25%;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    padding: 100px 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    overflow: hidden;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0, 123, 255, 0.5) 0%, rgba(0, 86, 179, 0.4) 100%);
+    z-index: 1;
+}
+
+.modern-hero-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-content {
+    color: #fff;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.hero-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    line-height: 1.2;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    line-height: 1.6;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.hero-buttons .btn {
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.hero-buttons .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.hero-buttons .btn-outline-light:hover {
+    background-color: #fff;
+    color: #007bff;
+}
+
+/* Sidebar */
+.modern-sidebar {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    border-radius: 20px;
+    padding: 30px 25px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 20px;
+    margin-bottom: 30px;
+    border: 1px solid rgba(0, 123, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.modern-sidebar:hover {
+    box-shadow: 0 12px 40px rgba(0, 123, 255, 0.15);
+    transform: translateY(-2px);
+}
+
+.sidebar-section {
+    margin-bottom: 35px;
+    padding-bottom: 25px;
+    border-bottom: 2px solid #e9ecef;
+    position: relative;
+}
+
+.sidebar-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.sidebar-section::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background: linear-gradient(90deg, #007bff 0%, #0056b3 100%);
+    border-radius: 2px;
+}
+
+.sidebar-section:last-child::after {
+    display: none;
+}
+
+.sidebar-section h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #212121;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    background: linear-gradient(135deg, rgba(0, 123, 255, 0.1) 0%, rgba(0, 86, 179, 0.05) 100%);
+    border-radius: 12px;
+    border-left: 4px solid #007bff;
+    transition: all 0.3s ease;
+}
+
+.sidebar-section h3:hover {
+    background: linear-gradient(135deg, rgba(0, 123, 255, 0.15) 0%, rgba(0, 86, 179, 0.1) 100%);
+    transform: translateX(3px);
+}
+
+.sidebar-section h3 i {
+    color: #007bff;
+    font-size: 1.1rem;
+    margin-right: 10px;
+}
+
+.sidebar-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-links li {
+    margin-bottom: 8px;
+}
+
+.sidebar-links a {
+    display: flex;
+    align-items: center;
+    padding: 12px 18px;
+    color: #333;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    font-size: 0.95rem;
+    background: #f8f9fa;
+    border: 1px solid transparent;
+    width: 100%;
+    word-wrap: break-word;
+    line-height: 1.5;
+    flex: 1;
+    min-width: 0;
+}
+
+.sidebar-links a:hover {
+    background: linear-gradient(135deg, rgba(0, 123, 255, 0.1) 0%, rgba(0, 86, 179, 0.05) 100%);
+    color: #007bff;
+    transform: translateX(8px);
+    border-color: rgba(0, 123, 255, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.15);
+}
+
+.sidebar-links a i {
+    transition: all 0.3s ease;
+    width: 20px;
+    text-align: center;
+    flex-shrink: 0;
+    margin-right: 10px;
+}
+
+.sidebar-links a:hover i {
+    transform: scale(1.2);
+    color: #007bff;
+}
+
+.sidebar-links a > *:not(i) {
+    flex: 1;
+    min-width: 0;
+}
+
+.sidebar-info,
+.sidebar-tips {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-info li,
+.sidebar-tips li {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: flex-start;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    padding: 12px 15px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    border-left: 3px solid transparent;
+    word-wrap: break-word;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+
+.sidebar-info li:hover,
+.sidebar-tips li:hover {
+    background: #e9ecef;
+    border-left-color: #007bff;
+    transform: translateX(5px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.sidebar-info li i,
+.sidebar-tips li i {
+    margin-top: 3px;
+    flex-shrink: 0;
+    font-size: 1.1rem;
+    width: 24px;
+    text-align: center;
+}
+
+.sidebar-info li strong {
+    color: #212121;
+    font-weight: 600;
+    margin-right: 4px;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.sidebar-info li,
+.sidebar-tips li {
+    color: #555;
+}
+
+.sidebar-info li span,
+.sidebar-tips li span {
+    flex: 1;
+    word-wrap: break-word;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+
+/* Section Titles */
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #212121;
+    margin-bottom: 1rem;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, #007bff 0%, #0056b3 100%);
+    border-radius: 2px;
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+    color: #6c757d;
+    margin-bottom: 0;
+}
+
+.section-header {
+    margin-bottom: 3rem;
+}
+
+/* About Section */
+.about-section-modern {
+    background: #fff;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08);
+    margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+    .about-section-modern {
+        padding: 3rem;
+    }
+}
+
+.about-content p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 1rem;
+}
+
+.about-content p:last-child {
+    margin-bottom: 0;
+}
+
+.about-features {
+    margin-top: 2rem;
+}
+
+.feature-item {
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.feature-item:hover {
+    background: #e9ecef;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.feature-item i {
+    font-size: 1.5rem;
+    margin-right: 0.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.feature-item h5 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #212121;
+    margin-bottom: 0.75rem;
+}
+
+.feature-item p {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+.feature-item ul {
+    margin-bottom: 0;
+}
+
+.about-image-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.about-image-wrapper img {
+    transition: transform 0.5s ease;
+}
+
+.about-image-wrapper:hover img {
+    transform: scale(1.05);
+}
+
+/* Featured Pets Section */
+.featured-pets-section {
+    background: #fff;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08);
+    margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+    .featured-pets-section {
+        padding: 3rem;
+    }
+}
+
+/* Ensure pet card rows have equal height cards */
+.row > .col-md-4 {
+    display: flex;
+}
+
+.pet-card {
+    background: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.pet-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.pet-card-image {
+    position: relative;
+    overflow: hidden;
+    height: 300px;
+}
+
+.pet-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.pet-card:hover .pet-card-image img {
+    transform: scale(1.1);
+}
+
+.pet-card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 123, 255, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.pet-card:hover .pet-card-overlay {
+    opacity: 1;
+}
+
+.pet-card-body {
+    padding: 25px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.pet-card-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #212121;
+    margin-bottom: 12px;
+}
+
+.pet-card-text {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    flex-grow: 1;
+    min-height: 4.8em; /* Ensure consistent height for 3 lines of text */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Ensure button container is always at bottom */
+.pet-card-body > .d-flex {
+    margin-top: auto;
+    flex-shrink: 0;
+}
+
+/* Rehome Section */
+.rehome-section-modern {
+    background: #fff;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08);
+    margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+    .rehome-section-modern {
+        padding: 3rem;
+    }
+}
+
+.rehome-content p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 1rem;
+}
+
+.rehome-features {
+    margin-top: 2rem;
+}
+
+.rehome-image-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.rehome-image-wrapper img {
+    transition: transform 0.5s ease;
+}
+
+.rehome-image-wrapper:hover img {
+    transform: scale(1.05);
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 767px) {
+    .modern-hero-section {
+        min-height: 450px;
+        padding: 80px 0;
+        background-position: center 25%;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+    }
+    
+    .hero-buttons .btn {
+        width: 100%;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .about-section-modern,
+    .featured-pets-section,
+    .rehome-section-modern {
+        padding: 1.5rem 1rem;
+    }
+    
+    .feature-item {
+        padding: 1rem;
+    }
+    
+    .pet-card-image {
+        height: 250px;
+    }
+    
+    .modern-sidebar {
+        margin-bottom: 30px;
+        position: relative;
+        top: 0;
+    }
+}
+
+/* ============================================================================
+   FORUM STYLES - Modern Community Forum Design
+   ============================================================================ */
+
+/* Forum Post Cards */
+.forum-post-card {
+    transition: all 0.3s ease;
+    border: 1px solid #e9ecef;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.forum-post-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12) !important;
+    border-color: #007bff;
+}
+
+.forum-post-card .card-body {
+    padding: 1.5rem;
+}
+
+/* Profile Picture Styling */
+.forum-profile-picture {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border: 3px solid #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+}
+
+.forum-profile-picture:hover {
+    transform: scale(1.1);
+}
+
+.forum-profile-placeholder {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Category Badges */
+.forum-category-badge {
+    font-size: 0.85rem;
+    padding: 0.5rem 1rem;
+    font-weight: 600;
+    border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.forum-category-badge.adoption_tips {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.forum-category-badge.rehoming_advice {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+}
+
+.forum-category-badge.pet_care {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    color: white;
+}
+
+.forum-category-badge.success_stories {
+    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+    color: white;
+}
+
+.forum-category-badge.community_events {
+    background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+    color: white;
+}
+
+.forum-category-badge.general {
+    background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
+    color: white;
+}
+
+/* Post Title */
+.forum-post-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #212529;
+    margin-bottom: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.forum-post-title:hover {
+    color: #007bff;
+    text-decoration: none;
+}
+
+/* Post Meta Information */
+.forum-post-meta {
+    font-size: 0.9rem;
+    color: #6c757d;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.forum-post-meta-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.forum-post-meta-item i {
+    font-size: 0.85rem;
+}
+
+/* Post Content Preview */
+.forum-post-preview {
+    color: #495057;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+/* Post Actions */
+.forum-post-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    border-top: 1px solid #e9ecef;
+    margin-top: 1rem;
+}
+
+.forum-stats {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.forum-stat-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+.forum-stat-item i {
+    font-size: 1rem;
+}
+
+/* Comments Section */
+.forum-comment {
+    padding: 1.25rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    background: #f8f9fa;
+    border-left: 4px solid #007bff;
+    transition: all 0.3s ease;
+}
+
+.forum-comment:hover {
+    background: #e9ecef;
+    transform: translateX(5px);
+}
+
+.forum-comment-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+}
+
+.forum-comment-author {
+    font-weight: 600;
+    color: #212529;
+    font-size: 1rem;
+}
+
+.forum-comment-time {
+    color: #6c757d;
+    font-size: 0.85rem;
+}
+
+.forum-comment-content {
+    color: #495057;
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* Comment Form */
+.forum-comment-form {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 10px;
+    border: 2px solid #e9ecef;
+    margin-bottom: 2rem;
+}
+
+.forum-comment-form:focus-within {
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* Highlight Animation */
+.highlight-comment {
+    animation: highlightComment 2s ease;
+}
+
+@keyframes highlightComment {
+    0% {
+        background-color: #fff3cd;
+    }
+    100% {
+        background-color: transparent;
+    }
+}
+
+/* Relative Time Styling */
+.relative-time {
+    color: #6c757d;
+    font-size: 0.85rem;
+    cursor: help;
+}
+
+/* Forum Filter Card */
+.forum-filter-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+}
+
+.forum-filter-card .card-header {
+    background: transparent;
+    border: none;
+    padding: 1.25rem 1.5rem 0.5rem;
+}
+
+.forum-filter-card .card-body {
+    padding: 1.5rem;
+}
+
+/* Create Post Button */
+.forum-create-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    padding: 0.75rem 2rem;
+    font-weight: 600;
+    border-radius: 25px;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    transition: all 0.3s ease;
+}
+
+.forum-create-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
+
+/* Post View Page */
+.forum-post-view {
+    background: #fff;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    margin-bottom: 2rem;
+}
+
+.forum-post-content {
+    font-size: 1.1rem;
+    line-height: 1.9;
+    color: #212529;
+    margin-top: 1.5rem;
+}
+
+/* Responsive Forum Styles */
+@media (max-width: 768px) {
+    .forum-profile-picture,
+    .forum-profile-placeholder {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .forum-post-title {
+        font-size: 1.2rem;
+    }
+    
+    .forum-post-actions {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+    }
+    
+    .forum-stats {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .section-title {
+        font-size: 2.25rem;
+    }
+}
+
+/* ============================================
+   PET DETAIL PAGE
+   ============================================ */
+
+/* Pet Detail Cards - Equal Height */
+.pet-detail-card {
+    height: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pet-detail-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Badge Sizing */
+.badge-lg {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    font-weight: 600;
+}
+
+/* Pet Image Card */
+.pet-image-card {
+    position: sticky;
+    top: 20px;
+}
+
+@media (max-width: 991px) {
+    .pet-image-card {
+        position: relative;
+        top: 0;
+    }
+}
+
+/* Adoption Fee Card */
+.adoption-fee-card {
+    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+    border: none;
+}
+
+.adoption-fee-card .btn-light {
+    background-color: #fff;
+    color: #007bff;
+    border: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.adoption-fee-card .btn-light:hover {
+    background-color: #f8f9fa;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+}
+
+/* Pet Info Grid - Mobile Responsive */
+@media (max-width: 767px) {
+    .pet-detail-card {
+        margin-bottom: 1rem;
+    }
+    
+    .pet-detail-card .fa-2x {
+        font-size: 1.5rem !important;
+    }
+    
+    .adoption-fee-card h2 {
+        font-size: 2rem;
+    }
+}
