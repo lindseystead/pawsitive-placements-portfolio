@@ -6,8 +6,8 @@
 [![MariaDB](https://img.shields.io/badge/MariaDB-10.4+-003545?style=flat&logo=mariadb&logoColor=white)](https://mariadb.org/)
 [![Bootstrap](https://img.shields.io/badge/Bootstrap-4.5-7952B3?style=flat&logo=bootstrap&logoColor=white)](https://getbootstrap.com/)
 [![License](https://img.shields.io/badge/License-Proprietary-red.svg)](LICENSE)
-![Visitor Count](https://visitor-badge.laobi.icu/badge?page_id=lindseystead.pawsitiveplacements)
-![Last Commit](https://img.shields.io/github/last-commit/lindseystead/PawsitivePlacements)
+![Visitor Count](https://visitor-badge.laobi.icu/badge?page_id=lindseystead.pawsitive-placements-portfolio)
+![Last Commit](https://img.shields.io/github/last-commit/lindseystead/pawsitive-placements-portfolio)
 
 
 **Live Demo:** [www.pawsitiveplacements.ca](https://www.pawsitiveplacements.ca) | **Video Demo:** Coming Soon
