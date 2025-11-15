@@ -126,6 +126,71 @@ Production-ready pet adoption platform connecting pet owners with potential adop
 
 ---
 
+## 🗄️ Database Design
+
+**Normalized relational database with 15+ tables, foreign key constraints, and optimized indexes.**
+
+### Schema Overview
+- **15+ Normalized Tables:** Users, pets, applications, forum posts, administrators, and more
+- **Foreign Key Relationships:** Enforced referential integrity across all relationships
+- **Indexed Columns:** Optimized queries on email, username, pet_id, user_id, and timestamps
+- **Data Types:** Appropriate VARCHAR lengths, ENUM types for status fields, DECIMAL for fees
+- **Character Set:** utf8mb4 for full Unicode support (emojis, international characters)
+
+### Key Design Decisions
+- **Normalization:** 3NF compliance prevents data redundancy
+- **Foreign Keys:** CASCADE and SET NULL behaviors for data integrity
+- **Indexes:** Strategic indexing on frequently queried columns (email, username, timestamps)
+- **ENUM Types:** Status fields (account_status, pet_status) for data consistency
+- **Timestamps:** Automatic `created_at` and `updated_at` tracking on all tables
+- **Soft Deletes:** Status-based deletion (e.g., `account_status = 'banned'`) preserves audit trail
+
+### Database Features
+- User management with email verification and account status tracking
+- Pet listings with vaccination status and adoption fee tracking
+- Adoption application workflow with status management
+- Community forum with posts, comments, and moderation
+- User blocking and reporting system
+- Contact form submissions with user association
+- Newsletter subscription management
+- Site visit counter with session-based tracking
+- Rate limiting for spam prevention
+
+**See:** `database/schema.sql` for complete schema documentation
+
+---
+
+## 🧪 Testing & Quality Assurance
+
+**Comprehensive testing approach ensuring production-ready reliability.**
+
+### Testing Methodology
+- **Static Code Analysis:** PHP syntax validation, file structure verification
+- **Security Audits:** CSRF protection, SQL injection prevention, XSS validation
+- **Feature Testing:** All major features reviewed and verified
+- **Database Integrity:** Schema validation, foreign key verification
+- **Security Testing:** Password hashing, session management, input validation
+
+### Test Coverage
+✅ **User Management:** Registration, login, profile editing, password reset  
+✅ **Pet Management:** Listing, search, filtering, detail views  
+✅ **Adoption Flow:** Application submission, status tracking  
+✅ **Forum System:** Post creation, comments, user interactions  
+✅ **Admin Panel:** CRUD operations, user management, moderation  
+✅ **Security:** CSRF tokens, prepared statements, XSS prevention  
+✅ **File Uploads:** Image validation, MIME checking, size limits  
+✅ **API Endpoints:** JSON responses, error handling, status codes  
+
+### Quality Metrics
+- **Code Quality:** Professional documentation, consistent structure, error handling
+- **Security:** 100% CSRF-protected forms, zero SQL injection vulnerabilities
+- **Performance:** Indexed queries, optimized database operations
+- **Maintainability:** MVC architecture, separation of concerns, reusable components
+
+**See:** `docs/TEST_REPORT.md` for detailed testing documentation
+
+---
+
 ## 💼 Engineering Skills Demonstrated
 
 - **Full-Stack Development:** PHP backend + Bootstrap frontend with MVC architecture
@@ -137,6 +202,7 @@ Production-ready pet adoption platform connecting pet owners with potential adop
 - **Admin Systems:** Comprehensive CRUD operations, user management, moderation
 - **File Handling:** Secure uploads with validation and MIME checking
 - **Code Quality:** Professional documentation, consistent structure, error handling
+- **Testing:** Static analysis, security audits, feature verification
 
 ---
 
@@ -191,15 +257,20 @@ cd PawsitivePlacements
 
 ---
 
-## 📄 License
+## 📄 License & Intellectual Property
 
-**Intellectual Property:** This project was designed, created, and implemented by **Lindsey D. Stead** and is the intellectual property of Lindsey D. Stead.
+**Designer & Developer:** Lindsey D. Stead  
+**Licensed To:** Lifesaver Technology Services
+
+This project was designed, created, and implemented by **Lindsey D. Stead**. The intellectual property rights are owned by Lindsey D. Stead and licensed to **Lifesaver Technology Services** for commercial use and deployment.
 
 **Copyright © 2025 Lindsey D. Stead. All Rights Reserved.**
 
 **Portfolio Project** - This repository is for portfolio demonstration and technical skills evaluation purposes.
 
 **Proprietary Software** - Source code is proprietary. See [Code Access](#code-access) section above for access information.
+
+**Licensing Inquiries:** Lifesaver Technology Services (info@lifesavertech.ca)
 
 ---
 
