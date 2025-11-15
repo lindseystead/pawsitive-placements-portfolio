@@ -245,41 +245,37 @@ cd PawsitivePlacements
 
 ## 🔐 Code Access
 
-**This is proprietary software.** Source code is available for portfolio review and technical evaluation.
+This is **proprietary software**.  
+Source code is available **for portfolio review and technical evaluation only**.
 
-**For Recruiters & Hiring Managers:**
-- ✅ **Portfolio Review:** Code available for technical skills assessment
-- ✅ **Code Inspection:** Full codebase accessible for evaluation
-- ✅ **Interview Discussion:** Project can be discussed in interviews
-- 📧 **Request Access:** Contact info@lifesavertech.ca for repository access
+### ▶️ For Recruiters & Hiring Managers
+You are welcome to:
+- ✔ Review the code for technical skill assessment  
+- ✔ Inspect the architecture and implementation details  
+- ✔ Discuss this project during interviews  
 
-**For Commercial Use:**
-- This software is proprietary and available for licensing
-- Commercial use, deployment, or distribution requires a license
-- Licensing inquiries: Lifesaver Technology Services (info@lifesavertech.ca)
+For private repository access or a secure demo:  
+📧 **info@lifesavertech.ca**
+
+### 🚫 For Commercial Use
+Commercial use, deployment, resale, or distribution **requires a valid commercial license**.
+
+Licensing inquiries:  
+**Lifesaver Technology Services**  
+📧 **info@lifesavertech.ca**
 
 ---
 
 ## 📄 License & Intellectual Property
 
-**Intellectual Property:** This project was designed, created, and implemented by **Lindsey D. Stead** and is the intellectual property of Lindsey D. Stead.
-
+**Intellectual Property Ownership**  
+This project was designed, created, and implemented by **Lindsey D. Stead**.  
+All intellectual property rights are owned exclusively by **Lindsey D. Stead**.  
 **Copyright © 2025 Lindsey D. Stead. All Rights Reserved.**
 
-**Portfolio Project** - This repository is for portfolio demonstration purposes only.
-
-**For Recruiters & Hiring Managers:**
-- ✅ **Portfolio Review:** Feel free to review this code for evaluation purposes
-- ✅ **Code Inspection:** You may inspect the codebase to assess technical skills
-- ✅ **Interview Discussion:** This project can be discussed in interviews
-
-**For Commercial Use:**
-- This software is proprietary and available for licensing upon request
-- Commercial use, deployment, or distribution requires a license
-- **Licensing inquiries:** Lifesaver Technology Services (info@lifesavertech.ca)
+This repository is provided **for portfolio demonstration purposes only**.  
+No commercial use is permitted without explicit written consent and a licensing agreement.
 
 ---
 
-**Built with ❤️ for ethical pet adoption and rehoming in Canada.**
-
-
+Built with ❤️ to support ethical pet adoption and rehoming across Canada.
