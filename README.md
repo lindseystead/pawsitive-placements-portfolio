@@ -259,18 +259,21 @@ cd PawsitivePlacements
 
 ## 📄 License & Intellectual Property
 
-**Designer & Developer:** Lindsey D. Stead  
-**Licensed To:** Lifesaver Technology Services
-
-This project was designed, created, and implemented by **Lindsey D. Stead**. The intellectual property rights are owned by Lindsey D. Stead and licensed to **Lifesaver Technology Services** for commercial use and deployment.
+**Intellectual Property:** This project was designed, created, and implemented by **Lindsey D. Stead** and is the intellectual property of Lindsey D. Stead.
 
 **Copyright © 2025 Lindsey D. Stead. All Rights Reserved.**
 
-**Portfolio Project** - This repository is for portfolio demonstration and technical skills evaluation purposes.
+**Portfolio Project** - This repository is for portfolio demonstration purposes only.
 
-**Proprietary Software** - Source code is proprietary. See [Code Access](#code-access) section above for access information.
+**For Recruiters & Hiring Managers:**
+- ✅ **Portfolio Review:** Feel free to review this code for evaluation purposes
+- ✅ **Code Inspection:** You may inspect the codebase to assess technical skills
+- ✅ **Interview Discussion:** This project can be discussed in interviews
 
-**Licensing Inquiries:** Lifesaver Technology Services (info@lifesavertech.ca)
+**For Commercial Use:**
+- This software is proprietary and available for licensing upon request
+- Commercial use, deployment, or distribution requires a license
+- **Licensing inquiries:** Lifesaver Technology Services (info@lifesavertech.ca)
 
 ---
 
