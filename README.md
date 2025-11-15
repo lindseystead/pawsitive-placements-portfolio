@@ -6,6 +6,9 @@
 [![MariaDB](https://img.shields.io/badge/MariaDB-10.4+-003545?style=flat&logo=mariadb&logoColor=white)](https://mariadb.org/)
 [![Bootstrap](https://img.shields.io/badge/Bootstrap-4.5-7952B3?style=flat&logo=bootstrap&logoColor=white)](https://getbootstrap.com/)
 [![License](https://img.shields.io/badge/License-Proprietary-red.svg)](LICENSE)
+[![Testing](https://img.shields.io/badge/Testing-Comprehensive-green.svg)](docs/TEST_REPORT.md)
+[![Security](https://img.shields.io/badge/Security-CSRF%20%7C%20SQL%20Injection%20Protected-brightgreen.svg)](#security-implementation)
+[![Database](https://img.shields.io/badge/Database-15%2B%20Tables-blue.svg)](database/schema.sql)
 ![Visitor Count](https://visitor-badge.laobi.icu/badge?page_id=lindseystead.pawsitive-placements-portfolio)
 ![Last Commit](https://img.shields.io/github/last-commit/lindseystead/pawsitive-placements-portfolio)
 
@@ -279,4 +282,4 @@ cd PawsitivePlacements
 
 **Built with ❤️ for ethical pet adoption and rehoming in British Columbia, Canada.**
 
-*Web Design and Development by [Lifesaver Technology Services](https://lifesavertech.ca)*
+
