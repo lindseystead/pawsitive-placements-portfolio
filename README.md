@@ -280,6 +280,6 @@ cd PawsitivePlacements
 
 ---
 
-**Built with ❤️ for ethical pet adoption and rehoming in British Columbia, Canada.**
+**Built with ❤️ for ethical pet adoption and rehoming in Canada.**
 
 
