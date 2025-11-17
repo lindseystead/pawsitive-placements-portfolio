@@ -8,14 +8,14 @@
 [![License](https://img.shields.io/badge/License-Proprietary-red.svg)](LICENSE)
 [![Testing](https://img.shields.io/badge/Testing-Comprehensive-green.svg)](docs/TEST_REPORT.md)
 [![Security](https://img.shields.io/badge/Security-CSRF%20%7C%20SQL%20Injection%20Protected-brightgreen.svg)](#security-implementation)
-[![Database](https://img.shields.io/badge/Database-15%2B%20Tables-blue.svg)](database/schema.sql)
-![Visitor Count](https://visitor-badge.laobi.icu/badge?page_id=lindseystead.pawsitive-placements-portfolio)
-![Last Commit](https://img.shields.io/github/last-commit/lindseystead/pawsitive-placements-portfolio)
+[![Database](https://img.shields.io/badge/Database-19%20Tables-blue.svg)](database/schema.sql)
+[![Visitor Count](https://visitor-badge.laobi.icu/badge?page_id=lindseystead.pawsitive-placements-portfolio)](https://github.com/lindseystead/pawsitive-placements-portfolio)
+[![Last Commit](https://img.shields.io/github/last-commit/lindseystead/pawsitive-placements-portfolio)](https://github.com/lindseystead/pawsitive-placements-portfolio)
 
 
-**Live Demo:** [www.pawsitiveplacements.ca](https://www.pawsitiveplacements.ca) | **Video Demo:** Coming Soon
+**Live Demo:** www.pawsitiveplacements.ca — *Full deployment coming soon.*
 
-> **Note:** Developed solo as a full-stack web application with complete backend, frontend, and database design. This is a proprietary, production-ready application. Source code is available for portfolio review upon request. See [Code Access](#code-access) section below.
+> **Project Overview:** A production-ready, full-stack web application developed as a solo project. Features complete backend, frontend, and database design. This proprietary application demonstrates enterprise-level development practices. This repository contains selected portfolio samples and documentation. The full codebase is available for portfolio review and technical evaluation upon request. See [Code Access](#code-access) section below. 
 
 ---
 
@@ -39,15 +39,15 @@
 
 ---
 
-## 🎯 What It Does
+## 🎯 Project Overview
 
-Production-ready pet adoption platform connecting pet owners with potential adopters across British Columbia. Features user management, advanced pet search, adoption applications, community forum, comprehensive admin panel, and enterprise-level SEO optimization.
+A production-ready pet adoption platform connecting pet owners with potential adopters across British Columbia. The application features comprehensive user management, advanced pet search capabilities, adoption application workflows, community forum functionality, and an extensive administrative panel with enterprise-level SEO optimization.
 
-**Impact:**
-- Streamlines pet rehoming process with ethical standards
-- Secure, user-friendly platform for pet adoption
-- BC PIPA-compliant privacy implementation
-- Enterprise SEO targeting 200-300% organic traffic growth
+**Key Impact:**
+- Streamlines the pet rehoming process with established ethical standards
+- Provides a secure, user-friendly platform for pet adoption
+- Implements BC PIPA-compliant privacy and data protection measures
+- Enterprise-level SEO implementation targeting 200-300% organic traffic growth
 
 ---
 
@@ -56,9 +56,10 @@ Production-ready pet adoption platform connecting pet owners with potential adop
 | Metric | Value |
 |--------|-------|
 | **Codebase** | 71 PHP files, 14,110+ lines |
-| **Database** | 15+ normalized tables |
-| **API Endpoints** | 10+ RESTful AJAX endpoints |
-| **Admin Pages** | 20+ management interfaces |
+| **Database** | 19 normalized tables |
+| **API Endpoints** | 4 RESTful AJAX endpoints |
+| **Admin Pages** | 13 management interfaces |
+| **User Pages** | 11 user account interfaces |
 | **Security** | 100% CSRF-protected, zero SQL injection vulnerabilities |
 | **SEO** | Dynamic meta tags, JSON-LD structured data, XML sitemap |
 
@@ -106,7 +107,7 @@ Production-ready pet adoption platform connecting pet owners with potential adop
 
 **Frontend:** Bootstrap 4.5.2 | jQuery 3.5.1 | AJAX | Font Awesome | Responsive Design
 
-**Database:** 15+ normalized tables | Foreign keys | Indexes | Seed data
+**Database:** 19 normalized tables | Foreign keys | Indexes | Seed data
 
 **SEO & Marketing:** Dynamic meta tags | JSON-LD structured data | XML sitemap | Social sharing | Newsletter system
 
@@ -131,10 +132,10 @@ Production-ready pet adoption platform connecting pet owners with potential adop
 
 ## 🗄️ Database Design
 
-**Normalized relational database with 15+ tables, foreign key constraints, and optimized indexes.**
+**Normalized relational database with 19 tables, foreign key constraints, and optimized indexes.**
 
 ### Schema Overview
-- **15+ Normalized Tables:** Users, pets, applications, forum posts, administrators, and more
+- **19 Normalized Tables:** Users, administrators, pets, pet_images, addresses, applications, messages, contact forms, newsletter subscriptions, site visits, password resets, rate limits, forum posts, forum comments, user blocks, reports, forum post reports, email queue, and user profile pictures
 - **Foreign Key Relationships:** Enforced referential integrity across all relationships
 - **Indexed Columns:** Optimized queries on email, username, pet_id, user_id, and timestamps
 - **Data Types:** Appropriate VARCHAR lengths, ENUM types for status fields, DECIMAL for fees
@@ -149,15 +150,16 @@ Production-ready pet adoption platform connecting pet owners with potential adop
 - **Soft Deletes:** Status-based deletion (e.g., `account_status = 'banned'`) preserves audit trail
 
 ### Database Features
-- User management with email verification and account status tracking
-- Pet listings with vaccination status and adoption fee tracking
-- Adoption application workflow with status management
-- Community forum with posts, comments, and moderation
-- User blocking and reporting system
-- Contact form submissions with user association
-- Newsletter subscription management
-- Site visit counter with session-based tracking
-- Rate limiting for spam prevention
+- **User Management:** Email verification, account status tracking (active/suspended/banned), phone verification
+- **Pet Management:** Listings with vaccination status, adoption fees, multiple images per pet, status workflow
+- **Adoption System:** Application workflow with status tracking, messaging between users
+- **Community Forum:** Posts with categories, threaded comments, view tracking, location-based filtering
+- **Moderation:** User blocking system, comprehensive reporting (pets, users, applications, messages, forum posts)
+- **Communication:** Contact form submissions (supports both logged-in and anonymous users), email queue system
+- **Marketing:** Newsletter subscription management with unsubscribe tracking
+- **Analytics:** Site visit counter with session-based tracking
+- **Security:** Rate limiting for spam prevention, password reset tokens, secure authentication
+- **Media:** User profile pictures, pet image galleries
 
 **See:** `database/schema.sql` for complete schema documentation
 
@@ -165,14 +167,15 @@ Production-ready pet adoption platform connecting pet owners with potential adop
 
 ## 🧪 Testing & Quality Assurance
 
-**Comprehensive testing approach ensuring production-ready reliability.**
+**Comprehensive testing methodology ensuring production-ready reliability and code quality.**
 
 ### Testing Methodology
-- **Static Code Analysis:** PHP syntax validation, file structure verification
-- **Security Audits:** CSRF protection, SQL injection prevention, XSS validation
-- **Feature Testing:** All major features reviewed and verified
-- **Database Integrity:** Schema validation, foreign key verification
-- **Security Testing:** Password hashing, session management, input validation
+- **Static Code Analysis:** PHP syntax validation via automated test runner (`tests/run_tests.php`), file structure verification
+- **Code Review:** Comprehensive manual review of all 71 PHP files and feature implementations
+- **Security Audits:** CSRF protection verification, SQL injection prevention (100% PDO prepared statements), XSS validation
+- **Feature Testing:** All major features manually reviewed and verified (user management, pet management, adoption flow, forum, admin panel)
+- **Database Integrity:** Schema validation, foreign key constraint verification, normalization compliance
+- **Security Testing:** Password hashing verification, session management review, input validation testing
 
 ### Test Coverage
 ✅ **User Management:** Registration, login, profile editing, password reset  
@@ -197,7 +200,7 @@ Production-ready pet adoption platform connecting pet owners with potential adop
 ## 💼 Engineering Skills Demonstrated
 
 - **Full-Stack Development:** PHP backend + Bootstrap frontend with MVC architecture
-- **Database Design:** Normalized schema with 15+ tables, foreign keys, indexes
+- **Database Design:** Normalized schema with 19 tables, foreign keys, indexes
 - **API Development:** RESTful AJAX endpoints with JSON responses
 - **Security:** CSRF, SQL injection prevention, XSS protection, password hashing
 - **SEO Optimization:** Dynamic meta tags, structured data (JSON-LD), sitemap generation
@@ -211,35 +214,83 @@ Production-ready pet adoption platform connecting pet owners with potential adop
 
 ## 📁 Project Structure
 
+**Note:** This repository contains selected portfolio samples and documentation. The full codebase (71 PHP files, 14,110+ lines) is proprietary and available for review upon request.
+
+### Repository Contents
+
 ```
-PawsitivePlacements/
-├── api/              # RESTful API endpoints
-├── admins/           # Admin panel (20+ pages)
-├── model/            # Database models (MVC)
-├── pets/             # Pet listings & details
-├── forum/            # Community forum
-├── user/             # User account management
-├── util/             # Utilities (SEO, CSRF, session)
-├── database/         # Production-ready schema
-└── view/             # Shared components
+pawsitive-placements-portfolio/
+├── portfolio-samples/    # Selected code samples (6 key files)
+│   ├── api/              # API endpoint sample
+│   ├── model/            # Database model sample
+│   ├── pets/             # Pet detail page sample
+│   ├── util/             # Utility samples (CSRF, SEO)
+│   └── view/             # Header component sample
+├── database/             # Database schema (structure only)
+│   └── schema.sql        # Complete schema documentation
+├── docs/                 # Project documentation
+│   ├── TEST_REPORT.md
+│   ├── DEPLOYMENT_GUIDE.md
+│   └── PROJECT_STRUCTURE.md
+├── screenshots/          # Application screenshots
+├── styles/               # CSS stylesheets
+├── js/                   # JavaScript files
+├── view/                 # Shared view components
+├── pets/                 # Pet listing pages (sample)
+├── README.md             # This file
+└── LICENSE               # Proprietary license
 ```
+
+### Full Application Structure
+
+The complete application includes:
+- **71 PHP files** across 15+ directories
+- **19 database tables** with full normalization and foreign key constraints
+- **Admin panel** (13 management interfaces: users, pets, applications, messages, administrators)
+- **User management system** (registration, profiles, authentication, email verification, password reset)
+- **Pet management** (listings, search, filtering, details, multiple images, vaccination tracking)
+- **Adoption application workflow** (application submission, status tracking, user messaging)
+- **Community forum** (categorized posts, threaded comments, moderation, location filtering)
+- **RESTful API** (4 AJAX endpoints: applications, contact, newsletter, pet rehoming)
+- **Security utilities** (CSRF protection, session management, input validation, rate limiting)
+- **Moderation system** (user blocking, comprehensive reporting system)
+- **SEO optimization** (dynamic meta tags, JSON-LD structured data, XML sitemap)
+- **Email system** (email queue, newsletter subscriptions, notifications)
+
+**See:** `portfolio-samples/README.md` for details on included code samples.
 
 ---
 
 ## 🚀 Quick Start
+
+### Prerequisites
+- PHP 8.2 or higher
+- MariaDB/MySQL 10.4 or higher
+- Apache web server
+- XAMPP, WAMP, or equivalent LAMP/WAMP stack
+
+### Installation Steps
 
 ```bash
 # 1. Clone repository
 git clone <repository-url>
 cd PawsitivePlacements
 
-# 2. Import database/schema.sql
+# 2. Import database schema
+# Import database/schema.sql into your MySQL/MariaDB instance
+
 # 3. Configure database credentials
-# 4. Start Apache/MySQL
-# 5. Access: http://localhost/PawsitivePlacements/
+# Update database connection settings in model/database.php
+
+# 4. Start Apache and MySQL services
+# Using XAMPP Control Panel or equivalent
+
+# 5. Access application
+# Navigate to http://localhost/PawsitivePlacements/
 ```
 
-**Default Admin:** `admin@pawsitiveplacements.ca` / `Admin123!` *(Change in production)*
+**Default Administrator Credentials:** `admin@pawsitiveplacements.ca` / `Admin123!`  
+*Note: Change default credentials immediately in production environments.*
 
 ---
 
@@ -249,15 +300,18 @@ This is **proprietary software**.
 Source code is available **for portfolio review and technical evaluation only**.
 
 ### ▶️ For Recruiters & Hiring Managers
+
 You are welcome to:
-- ✔ Review the code for technical skill assessment  
-- ✔ Inspect the architecture and implementation details  
-- ✔ Discuss this project during interviews  
+
+* ✔ Review the code for technical skill assessment
+* ✔ Inspect the architecture and implementation details
+* ✔ Discuss this project during interviews
 
 For private repository access or a secure demo:  
 📧 **info@lifesavertech.ca**
 
 ### 🚫 For Commercial Use
+
 Commercial use, deployment, resale, or distribution **requires a valid commercial license**.
 
 Licensing inquiries:  
@@ -278,4 +332,6 @@ No commercial use is permitted without explicit written consent and a licensing 
 
 ---
 
-Built with ❤️ to support ethical pet adoption and rehoming across Canada.
+**Built with ❤️ to support ethical pet adoption and rehoming across Canada.**
+
+
